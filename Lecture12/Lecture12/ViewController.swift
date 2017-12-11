@@ -33,6 +33,9 @@ class ViewController: UIViewController {
                 let decoder = JSONDecoder()
                 let config = try! decoder.decode([GridConfiguration].self, from: data)
                 resultString = config.description
+                let recode = try! JSONEncoder().encode(config)
+                let defaults = UserDefaults.standard
+                defaults.set(recode, forKey: "simulationConfiguration")
             case .failure(let message):
                 resultString = message
             }

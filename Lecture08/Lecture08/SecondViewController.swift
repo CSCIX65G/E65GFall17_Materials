@@ -12,7 +12,15 @@ class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let center = NotificationCenter.default
+        let name = Notification.Name(rawValue: "EngineUpdate")
+        center.addObserver(
+            self,
+            selector: #selector(engineUpdate(notification:)),
+            name: name,
+            object: nil
+        )
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +28,9 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @objc func engineUpdate(notification: Notification) {
+        print(notification)
+    }
 
 }
 

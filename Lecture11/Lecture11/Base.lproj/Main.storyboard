@@ -61,7 +61,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9z-6Y-7He">
                                 <rect key="frame" x="16" y="118" width="343" height="500"/>
                                 <connections>
-                                    <segue destination="oJU-sA-SOP" kind="embed" id="pIO-pe-e34"/>
+                                    <segue destination="oJU-sA-SOP" kind="embed" identifier="" id="pIO-pe-e34"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -127,6 +127,9 @@
                             <outlet property="delegate" destination="oJU-sA-SOP" id="Ph9-eC-dIL"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="i74-tv-J8i" kind="show" identifier="Edit" id="hKs-Ch-gnx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x78-Oi-R9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -277,4 +280,7 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="hKs-Ch-gnx"/>
+    </inferredMetricsTieBreakers>
 </document>

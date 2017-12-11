@@ -41,6 +41,7 @@ class GridEditorTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,6 +73,27 @@ class GridEditorTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionHeaders[section]
     }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            self.data[indexPath.section].remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+        
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+            let segue = UIStoryboardSegue(identifier: "Edit", source: self, destination: GridEditorController())
+            segue.perform()
+        }
+        
+        edit.backgroundColor = UIColor.blue
+        
+        return [delete, edit]
+    }
+    
+    override func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        print(" ended")
+    }
+    
 
     // MARK: - Navigation
 

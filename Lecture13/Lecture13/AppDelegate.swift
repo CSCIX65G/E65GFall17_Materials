@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Lecture12
+//  Lecture13
 //
-//  Created by Van Simmons on 11/27/17.
+//  Created by Van Simmons on 12/4/17.
 //  Copyright © 2017 Harvard University. All rights reserved.
 //
 
@@ -15,14 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let defaults = UserDefaults.standard
-        if let recovered = defaults.object(forKey: "simulationConfiguration") as? Data,
-            let recodedString = String(data: recovered, encoding: String.Encoding.utf8) {
-            let decoder = JSONDecoder()
-            let config = try! decoder.decode([GridConfiguration].self, from: recovered)
-            let resultString = config.description
-            print(resultString)
-        }
+        // Override point for customization after application launch.
         return true
     }
 
